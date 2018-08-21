@@ -13,7 +13,7 @@
     <string name="tax">Tax (%)</string>
     <string name="tax_in_percent">Enter Tax In Percent i.e 16</string>
     <string name="default_tax">16</string>
-    <string name="profit">Expected Profit (%)</string>
+    <string name="profit">Profit (%)</string>
     <string name="default_profit">20</string>
     <string name="profit_percent">Enter Percentage In Percent</string>
     <string name="number_of_items">Number of Items</string>

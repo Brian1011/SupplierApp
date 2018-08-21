@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity
         text_quantity = (EditText)findViewById(R.id.texfield_quantity);
         text_total = (TextView)findViewById(R.id.textview_total);
 
-
         //initialize the values to the ones in the textfield
         buying_price = Integer.parseInt(text_buying_price.getText().toString());
         calculated_tax = Integer.parseInt(text_tax.getText().toString());
@@ -97,7 +96,22 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                calculated_tax = Integer.parseInt(text_tax.getText().toString());
+                //int hold = Integer.parseInt(text_tax.getText().toString());//check the percentages
+                //set value of text to hold
+                //text_tax.setText(String.valueOf(hold));
+                int hold = Integer.parseInt(text_tax.getText().toString());//initialize tax
+
+                //tax cannot be more than 100
+                if(hold>100){
+                    text_tax.setError("Tax cannot be more than 100");
+                    text_tax.setText("1");
+                    text_tax.requestFocus();
+                    calculated_tax = 1;
+                    return;
+                }else{
+                    calculated_tax = Integer.parseInt(text_tax.getText().toString());//initialize tax
+                }
+
                 calculate_selling();
             }
 
@@ -171,14 +185,17 @@ public class MainActivity extends AppCompatActivity
 
     //a method that checks tax and profit is not more than a 100
     public int percentages(int value){
+        int new_value;
         if(value >100){
-            Toast.makeText(this,"Percent Cannot be more than a 100",Toast.LENGTH_SHORT).show();
-            value =100;
+            Toast.makeText(getApplicationContext(),"Percent Cannot be more than a 100",Toast.LENGTH_SHORT).show();
+            new_value =100;
         }else if(value < 0){
-            Toast.makeText(this,"Percent Cannot be less than 0!",Toast.LENGTH_SHORT).show();
-            value = 0;
+            Toast.makeText(getApplicationContext(),"Percent Cannot be less than 0!",Toast.LENGTH_SHORT).show();
+            new_value = 0;
+        }else{
+            new_value = value;
         }
-        return value;
+        return new_value;
     }
 
 
