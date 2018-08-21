@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity
         text_profit = (EditText)findViewById(R.id.texfield_profit);
         text_quantity = (EditText)findViewById(R.id.texfield_quantity);
         text_total = (TextView)findViewById(R.id.textview_total);
+
 
         //initialize the values to the ones in the textfield
         buying_price = Integer.parseInt(text_buying_price.getText().toString());
@@ -152,7 +155,17 @@ public class MainActivity extends AppCompatActivity
         item_tax = buying_price * calculated_tax/100;
         item_selling = buying_price+item_profit+item_tax;//quantity is 1
         selling_price = (buying_price+item_profit+item_tax)*quantity;
-        text_total.setText("Ksh: "+selling_price+"\n Buying Price "+buying_price+"\n Calculated Tax "+calculated_tax+"\n Profit"+calculated_profit);
+        //text_total.setText("Ksh: "+selling_price);
+
+        //format the texfields to display commas
+        String formatted_total = format_with_decimal(selling_price);
+        text_total.setText("Ksh: "+formatted_total);
+    }
+
+    //a method that displays commas
+    public String format_with_decimal(int money){
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        return formatter.format(money);
     }
 
 
