@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,13 +8,197 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginEnd="10sp"
+            >
+
+        <!--AMOUNT PAID/BUYING PRICE-->
+            <TextView
+                android:layout_marginTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/amount"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                />
+
+            <EditText
+                android:id="@+id/textfield_buying_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_amount"
+                android:text="@string/zero"
+                android:textSize="20sp"
+                android:inputType="number"
+                android:layout_marginBottom="20sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="50"
+                    >
+
+                    <!--TAX NON EDITABLE-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tax"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorBlack"
+                        />
+
+
+                    <EditText
+                        android:id="@+id/texfield_tax"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tax_in_percent"
+                        android:textSize="20sp"
+                        android:inputType="number"
+                        android:layout_marginBottom="20sp"
+                        android:text="@string/default_tax"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="50"
+                    >
+
+                    <!--PROFIT IN PERCENT-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profit"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorBlack"
+                        />
+
+                    <EditText
+                        android:id="@+id/texfield_profit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/profit_percent"
+                        android:textSize="20sp"
+                        android:inputType="number"
+                        android:layout_marginBottom="20sp"
+                        android:text="@string/default_profit"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        <!--Quantity-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/num_of_items_edittext"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                />
+
+            <EditText
+                android:id="@+id/texfield_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_of_items"
+                android:text="@string/default_no_items"
+                android:textColor="@color/colorBlack"
+                android:inputType="number"
+                android:layout_marginBottom="20sp"
+                />
+
+         <!--The Total-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_selling_price"
+                android:textSize="20sp"
+                android:textColor="@color/colorBlack"
+                />
+
+            <TextView
+                android:id="@+id/textview_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/zero"
+                android:textSize="40sp"
+                android:textColor="@color/colorBlue"
+                android:layout_marginBottom="20sp"
+                />
+
+            <!--
+            <EditText
+                android:id="@+id/texfield_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/total_price"
+                android:inputType="none"
+                />-->
+
+        <!--The Results In Details-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buying Price: 30,000"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tax_calculated"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profit: 6,000"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Qauntity: 1"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Single Item = (30,000 + 6,000 + 4,800)*(1) = 40,800"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total = (30,000 + 6,000 + 4,800)*(1) = 40,800"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

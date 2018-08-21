@@ -2,8 +2,25 @@
     <string name="app_name">Supplier App</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Supplier App</string>
+    <string name="nav_header_subtitle">mutindabrian26@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="amount">Amount / Buying Price</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="zero">0</string>
+    <string name="supplier_calculator_app">SUPPLIER CALCULATOR APP</string>
+    <string name="tax">Tax (%)</string>
+    <string name="tax_in_percent">Enter Tax In Percent i.e 16</string>
+    <string name="default_tax">16</string>
+    <string name="profit">Expected Profit (%)</string>
+    <string name="default_profit">20</string>
+    <string name="profit_percent">Enter Percentage In Percent</string>
+    <string name="number_of_items">Number of Items</string>
+    <string name="default_no_items">1</string>
+    <string name="num_of_items_edittext">Number of Items</string>
+    <string name="total_">Total / Selling price : 36,000</string>
+    <string name="tax_calculated">Tax: 4,800</string>
+    <string name="total_selling_price">Total / Selling Price</string>
+    <string name="total_price">Total Price</string>
 </resources>
