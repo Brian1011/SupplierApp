@@ -76,9 +76,16 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //change the buying price
-                buying_price = Integer.parseInt(text_buying_price.getText().toString());
-                calculate_selling();
+                //check if buying price is empty
+                if(text_buying_price.getText().toString().isEmpty()){
+                    //reset to 0
+                    text_buying_price.setError("Buying price cannot be empty");
+                }else{
+                    //calculate
+                    buying_price = Integer.parseInt(text_buying_price.getText().toString());
+                    calculate_selling();
+                }
+
             }
 
             @Override
@@ -96,23 +103,28 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //int hold = Integer.parseInt(text_tax.getText().toString());//check the percentages
-                //set value of text to hold
-                //text_tax.setText(String.valueOf(hold));
-                int hold = Integer.parseInt(text_tax.getText().toString());//initialize tax
+                //make sure its not empty
 
-                //tax cannot be more than 100
-                if(hold>100){
-                    text_tax.setError("Tax cannot be more than 100");
-                    text_tax.setText("1");
-                    text_tax.requestFocus();
-                    calculated_tax = 1;
-                    return;
+                //check if buying price is empty
+                if(text_tax.getText().toString().isEmpty()){
+                    //reset to 0
+                    text_tax.setError("Tax cannot be empty");
                 }else{
-                    calculated_tax = Integer.parseInt(text_tax.getText().toString());//initialize tax
-                }
+                    //calulate the
+                    int hold = Integer.parseInt(text_tax.getText().toString());//initialize tax
 
-                calculate_selling();
+                    //tax cannot be more than 100
+                    if(hold>100){
+                        text_tax.setError("Tax cannot be more than 100");
+                        text_tax.setText("16");
+                        text_tax.requestFocus();
+                        return;
+                    }
+
+                    //get the tax from input
+                    calculated_tax = Integer.parseInt(text_tax.getText().toString());//initialize tax
+                    calculate_selling();
+                }
             }
 
             @Override
@@ -130,10 +142,18 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //set profit to the new value
-                calculated_profit = Integer.parseInt(text_profit.getText().toString());
-                //recalulate total again
-                calculate_selling();
+
+                if(text_profit.getText().toString().isEmpty()){
+                    //reset to 0
+                    text_profit.setError("Profit cannot be empty");
+                }else{
+                    //set profit to the new value
+                    calculated_profit = Integer.parseInt(text_profit.getText().toString());
+                    //recalulate total again
+                    calculate_selling();
+                }
+
+
             }
 
             @Override
@@ -151,10 +171,17 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //initialize the quantity to the new value
-                quantity = Integer.parseInt(text_quantity.getText().toString());
-                //recalculate total again
-                calculate_selling();
+
+                if(text_quantity.getText().toString().isEmpty()){
+                    //reset to 0
+                    text_quantity.setError("Quantity cannot be empty");
+                }else{
+                    //initialize the quantity to the new value
+                    quantity = Integer.parseInt(text_quantity.getText().toString());
+                    //recalculate total again
+                    calculate_selling();
+                }
+
             }
 
             @Override
@@ -196,6 +223,15 @@ public class MainActivity extends AppCompatActivity
             new_value = value;
         }
         return new_value;
+    }
+
+    //A method that checks if the texfields are null
+    public boolean check_null(String data){
+        if(data == null){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 

@@ -23,4 +23,5 @@
     <string name="tax_calculated">Tax: 4,800</string>
     <string name="total_selling_price">Total / Selling Price</string>
     <string name="total_price">Total Price</string>
+    <string name="calculation_details">Calculation Details</string>
 </resources>
