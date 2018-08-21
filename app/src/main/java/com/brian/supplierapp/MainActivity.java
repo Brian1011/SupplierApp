@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -166,6 +167,18 @@ public class MainActivity extends AppCompatActivity
     public String format_with_decimal(int money){
         DecimalFormat formatter = new DecimalFormat("#,###,###");
         return formatter.format(money);
+    }
+
+    //a method that checks tax and profit is not more than a 100
+    public int percentages(int value){
+        if(value >100){
+            Toast.makeText(this,"Percent Cannot be more than a 100",Toast.LENGTH_SHORT).show();
+            value =100;
+        }else if(value < 0){
+            Toast.makeText(this,"Percent Cannot be less than 0!",Toast.LENGTH_SHORT).show();
+            value = 0;
+        }
+        return value;
     }
 
 
