@@ -12,6 +12,6 @@ The qauntity is entered by the user.
 The total price is (selling price * quantity)
 While selling price is (Buying prie * tax(0.16) * profit * 1( intial quantity is 1))
 
-Future Modifications can be made to solve suppliers problem
+Future Modifications can be made to solve problems that suppliers go through.
 
 
