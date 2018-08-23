@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
     //declare the variables
     int buying_price=0, selling_price=0, calculated_tax=0, calculated_profit=0, quantity=0, item_profit=0, item_tax=0, item_selling=0;
     EditText text_buying_price, text_tax, text_profit,text_quantity;
-    TextView text_total;
+    TextView text_total, calculation_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity
         text_profit = (EditText)findViewById(R.id.texfield_profit);
         text_quantity = (EditText)findViewById(R.id.texfield_quantity);
         text_total = (TextView)findViewById(R.id.textview_total);
+        calculation_info = (TextView)findViewById(R.id.calc_details);
 
         //initialize the values to the ones in the textfield
         buying_price = Integer.parseInt(text_buying_price.getText().toString());
@@ -202,6 +203,9 @@ public class MainActivity extends AppCompatActivity
         //format the texfields to display commas
         String formatted_total = format_with_decimal(selling_price);
         text_total.setText("Ksh: "+formatted_total);
+
+        //display the information
+        calculation_information();
     }
 
     //a method that displays commas
@@ -232,6 +236,18 @@ public class MainActivity extends AppCompatActivity
         }else{
             return true;
         }
+    }
+
+    //Display information about the calculations
+    public void calculation_information(){
+        calculation_info.setText(
+                "Single Item Buying Price: " + buying_price+"\n"+
+                "Single Item Tax ("+calculated_tax+"%) : " + item_tax+"\n"+
+                "Single Item Profit:("+calculated_profit+"%) : " + item_profit+"\n"+
+                "Quantity: "+quantity+"\n \n"+
+                "Total Item Buying Price: "+buying_price*quantity+"\n"+
+                "Total/Selling Price: \n("+buying_price+" + "+item_tax+" + "+item_profit+") X "+quantity+" = "+selling_price+"\n \n"
+        );
     }
 
 

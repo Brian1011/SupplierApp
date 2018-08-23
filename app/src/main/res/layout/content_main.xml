@@ -147,15 +147,16 @@
                 android:text="@string/zero"
                 android:textSize="40sp"
                 android:textColor="@color/colorBlue"
-                android:layout_marginBottom="20sp"
+                android:layout_marginBottom="30sp"
                 />
+
 
         <!--The Results In Details-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/calculation_details"
-                android:textSize="16dp"
+                android:textSize="20sp"
                 android:textColor="@color/colorBlack"
                 android:textAlignment="center"
                 />
@@ -165,6 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tax_calculated"
+                android:textSize="20sp"
                 />
 
         </LinearLayout>
